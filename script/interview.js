@@ -25,7 +25,7 @@ function interview(id, status, btn, rejBtn){
         setInterviewCount(interviewCount);
         checkJob(rejectedCount);
         if(!(secondContainer.classList.contains('hidden'))){
-            secondCount(interviewCount);
+            secondCount(rejectedCount);
         }
         
     }
@@ -34,6 +34,7 @@ function interview(id, status, btn, rejBtn){
     }
     interviewCount++;
     setInterviewCount(interviewCount);
+    // secondCount(rejectedCount);
     document.getElementById(btn).disabled = true;
     document.getElementById(rejBtn).disabled = false;
     const getStatus = document.getElementById(status);
@@ -48,6 +49,8 @@ function interviewTab(){
     secondCount(interviewCount);
     
     buttonChange('interview');
+
+    setCurrentTab("int");
 
     checkJob(interviewCount);
 

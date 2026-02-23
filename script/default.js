@@ -8,4 +8,7 @@ document.getElementById('default').addEventListener("click", function(){
     document.getElementById('second-int-count').classList.add('hidden');
 
     buttonChange('default');
+
+    setCurrentTab("def");
+    checkJob();
 })

@@ -14,6 +14,7 @@ function rejected(id, status, rejBtn, btn){
     let interviewCount = getInterviewCount();
     const secondContainer = document.getElementById('second-int-count');
     const cardElement = document.getElementById(id);
+    const tab = showCurrentTab();
 
     if(document.getElementById(id).classList.contains('interview')){
         cardElement.classList.remove('interview');
@@ -26,7 +27,7 @@ function rejected(id, status, rejBtn, btn){
         setInterviewCount(interviewCount);
         checkJob(interviewCount);
         if(!(secondContainer.classList.contains('hidden'))){
-            secondCount(rejectedCount);
+            secondCount(interviewCount);
         }
         
     }
@@ -36,6 +37,7 @@ function rejected(id, status, rejBtn, btn){
 
     rejectedCount++;
     setRejectedCount(rejectedCount);
+    // secondCount(interviewCount);
     document.getElementById(rejBtn).disabled = true;
     document.getElementById(btn).disabled = false;
     const getStatus = document.getElementById(status);
@@ -53,6 +55,7 @@ function rejectedTab(){
 
     buttonChange('rejected');
 
+    setCurrentTab('rej');
     checkJob(rejectedCount);
 
     const children = document.getElementById('job-container').children;

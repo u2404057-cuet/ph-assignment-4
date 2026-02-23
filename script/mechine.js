@@ -15,10 +15,10 @@ function hideNoJob(){
 }
 
 function checkJob(count){
-    const jobs = jobCount();
-    if(count == 0 || jobs == 0){
+    if(count == 0){
         noJob();
-    }else{
+    }
+    else{
         hideNoJob();
     }
 }
@@ -36,20 +36,36 @@ function setJobCount(num){
 
 }
 
+let currentTab = "def";
+function setCurrentTab(tab){
+    currentTab = tab;
+}
+function showCurrentTab(){
+    return currentTab;
+}
+
+
 function hide(id){
     let interviewCount = getInterviewCount();
     let rejectedCount = getRejectedCount();
     let element = document.getElementById(id);
-    if(interviewCount > 0){
+    let tab = showCurrentTab();
+    if(interviewCount > 0 && tab == 'int'){
         element.classList.remove('interview');
         interviewCount--;
+        // console.log(tab, interviewCount);
         setInterviewCount(interviewCount);
+        secondCount(interviewCount);
+        checkJob(interviewCount);
     }
-    if(rejectedCount > 0){
+    else if(rejectedCount > 0 && tab == 'rej'){
         element.classList.remove('rejected');
         rejectedCount--;
         setRejectedCount(rejectedCount);
+        secondCount(rejectedCount);
+        checkJob(rejectedCount);
     }
+    
     element.style.display = 'none';
     let jobs = jobCount();
     jobs--;
