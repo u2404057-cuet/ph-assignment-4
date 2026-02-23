@@ -50,20 +50,29 @@ function hide(id){
     let rejectedCount = getRejectedCount();
     let element = document.getElementById(id);
     let tab = showCurrentTab();
-    if(interviewCount > 0 && tab == 'int'){
+    if((interviewCount > 0 && tab == 'int') || (interviewCount > 0 && tab == 'def')){
         element.classList.remove('interview');
         interviewCount--;
-        // console.log(tab, interviewCount);
         setInterviewCount(interviewCount);
-        secondCount(interviewCount);
-        checkJob(interviewCount);
+        if(tab == 'int'){
+            checkJob(interviewCount);
+            secondCount(interviewCount);
+        }
+        else{
+            checkJob(jobCount());
+        }
     }
-    else if(rejectedCount > 0 && tab == 'rej'){
+    else if((rejectedCount > 0 && tab == 'int') || (rejectedCount > 0 && tab == 'def')){
         element.classList.remove('rejected');
         rejectedCount--;
         setRejectedCount(rejectedCount);
-        secondCount(rejectedCount);
-        checkJob(rejectedCount);
+        if(tab == 'rej'){
+            checkJob(rejectedCount);
+            secondCount(rejectedCount);
+        }
+        else{
+            checkJob(jobCount());
+        }
     }
     
     element.style.display = 'none';
@@ -94,4 +103,3 @@ function buttonChange(id){
 
 
 }
-

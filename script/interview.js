@@ -17,13 +17,15 @@ function interview(id, status, btn, rejBtn){
     if(document.getElementById(id).classList.contains('rejected')){
         cardElement.classList.remove('rejected');
         cardElement.classList.add('interview');
+        rejectedCount--;
         if(!(document.getElementById(id).classList.contains('default'))){
             cardElement.classList.add('hidden');
+            checkJob(rejectedCount);
         }
-        rejectedCount--;
+        else{
+            checkJob(jobCount());
+        }
         setRejectedCount(rejectedCount);
-        setInterviewCount(interviewCount);
-        checkJob(rejectedCount);
         if(!(secondContainer.classList.contains('hidden'))){
             secondCount(rejectedCount);
         }
