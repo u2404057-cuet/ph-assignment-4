@@ -62,7 +62,7 @@ function hide(id){
             checkJob(jobCount());
         }
     }
-    else if((rejectedCount > 0 && tab == 'int') || (rejectedCount > 0 && tab == 'def')){
+    else if((rejectedCount > 0 && tab == 'rej') || (rejectedCount > 0 && tab == 'def')){
         element.classList.remove('rejected');
         rejectedCount--;
         setRejectedCount(rejectedCount);
