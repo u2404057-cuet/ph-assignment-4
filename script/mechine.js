@@ -11,6 +11,7 @@ function setJobCount(num){
 
     if(num == 0){
         noJob();
+        document.getElementById('default').disabled = true;
     }
     const totalJob1 = document.getElementById('total-job-1');
     const totalJob2 = document.getElementById('total-job-2');

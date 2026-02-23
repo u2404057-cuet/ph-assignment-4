@@ -61,12 +61,12 @@
 
       <div class="flex justify-between items-center">
         <p class="font-semibold text-xl">Available Jobs</p>
-        <p class=""><span id="total-job-2">8</span> jobs</p>
+        <p class=""><span id="second-int-count" class="hidden"><span id="int-count"></span> of </span><span id="total-job-2">8</span> jobs</p>
       </div>
 
       <div class="choises flex gap-2">
         <button id="default" class="btn bg-base-100 hover:bg-base-300">Default</button>
-        <button id="interview" class="btn bg-base-100 hover:bg-base-300">Interview</button>
+        <button onclick="interviewTab()" id="interview" class="btn bg-base-100 hover:bg-base-300">Interview</button>
         <button id="rejected" class="btn bg-base-100 hover:bg-base-300">Rejected</button>
       </div>
 
@@ -82,9 +82,9 @@
             Build cross-platform mobile applications using React Native. Work on
             products used by millions of users worldwide.
           </p>
-          <button id="interview-btn-1" onclick="interview('job-1','job-status-1', 'interview-btn-1')" class="btn btn-lg btn-outline btn-success">Interview</button>
-          <button id="rejected-1" class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button onclick="hide('job-1')" onclick="hide('job-2')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button id="interview-btn-1" onclick="interview('job-1','job-status-1', 'interview-btn-1', 'rejected-btn-1')" class="btn btn-lg btn-outline btn-success">Interview</button>
+          <button id="rejected-btn-1" onclick="rejected('job-1', 'job-status-1', 'rejected-btn-1', 'interview-btn-1')" class="btn btn-lg btn-outline btn-error">Rejected</button>
+          <button onclick="hide('job-1')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
@@ -213,22 +213,25 @@
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-
-        <div id="no-job" class="bg-base-100 py-28 rounded-xl flex flex-col items-center gap-5 hidden">
-          <div class="img">
-            <img src="./jobs.png" alt="" />
-          </div>
-          <div class="text-center">
-            <h1 class="text-3xl font-semibold">No jobs available</h1>
-            <p class="text-[#64748B]">
-              Check back soon for new job opportunities
-            </p>
-          </div>
-        </div>
       </div>
+    </section>
+    <section class="container mx-auto px-3">
+        <div id="no-job" class="bg-base-100 py-28 rounded-xl flex flex-col items-center gap-5 hidden">
+            <div class="img">
+              <img src="./jobs.png" alt="" />
+            </div>
+            <div class="text-center">
+              <h1 class="text-3xl font-semibold">No jobs available</h1>
+              <p class="text-[#64748B]">
+                Check back soon for new job opportunities
+              </p>
+            </div>
+          </div>
     </section>
 
     <script src="./script/mechine.js"></script>
     <script src="./script/interview.js"></script>
+    <script src="./script/default.js"></script>
+    <script src="./script/rejected.js"></script>
   </body>
 </html>
