@@ -11,21 +11,28 @@ function setInterviewCount(num){
 function interview(id, status, btn, rejBtn){
     let interviewCount = getInterviewCount();
     let rejectedCount = getRejectedCount();
+    const secondContainer = document.getElementById('second-int-count');
     const cardElement = document.getElementById(id);
 
     if(document.getElementById(id).classList.contains('rejected')){
         cardElement.classList.remove('rejected');
         cardElement.classList.add('interview');
+        if(!(document.getElementById(id).classList.contains('default'))){
+            cardElement.classList.add('hidden');
+        }
         rejectedCount--;
         setRejectedCount(rejectedCount);
         setInterviewCount(interviewCount);
+        if(!(secondContainer.classList.contains('hidden'))){
+            secondCount(interviewCount);
+        }
+        
     }
     else{
         cardElement.classList.add('interview');
     }
     interviewCount++;
     setInterviewCount(interviewCount);
-    console.log(id, status);
     document.getElementById(btn).disabled = true;
     document.getElementById(rejBtn).disabled = false;
     const getStatus = document.getElementById(status);
@@ -35,12 +42,15 @@ function interview(id, status, btn, rejBtn){
 }
 
 function interviewTab(){
-
-    const inter2 = document.getElementById('second-int-count');
-    const interCount2 = document.getElementById('int-count');
+    
     const interviewCount = getInterviewCount();
-    interCount2.innerText = interviewCount;
-    inter2.classList.remove('hidden');
+    secondCount(interviewCount);
+    
+    buttonChange('interview');
+
+    if(interviewCount == 0){
+        noJob();
+    }
 
     const children = document.getElementById('job-container').children;
     for(const child of children){
@@ -49,5 +59,6 @@ function interviewTab(){
     const interviewDiv = document.querySelectorAll('.interview');
     for(const div of interviewDiv){
         div.classList.remove('hidden');
+        div.classList.remove('default');
     }
 }
