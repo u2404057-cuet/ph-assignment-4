@@ -4,7 +4,23 @@ function jobCount(){
 }
 
 function noJob(){
+    const children = document.getElementById('job-container').children;
+    for(const child of children){
+        child.classList.add('hidden');
+    }
     document.getElementById('no-job').classList.remove('hidden');
+}
+function hideNoJob(){
+    document.getElementById('no-job').classList.add('hidden');
+}
+
+function checkJob(count){
+    const jobs = jobCount();
+    if(count == 0 || jobs == 0){
+        noJob();
+    }else{
+        hideNoJob();
+    }
 }
 
 function setJobCount(num){
@@ -21,11 +37,22 @@ function setJobCount(num){
 }
 
 function hide(id){
-    document.getElementById(id).classList.add('hidden');
+    let interviewCount = getInterviewCount();
+    let rejectedCount = getRejectedCount();
+    let element = document.getElementById(id);
+    if(interviewCount > 0){
+        element.classList.remove('interview');
+        interviewCount--;
+        setInterviewCount(interviewCount);
+    }
+    if(rejectedCount > 0){
+        element.classList.remove('rejected');
+        rejectedCount--;
+        setRejectedCount(rejectedCount);
+    }
+    element.style.display = 'none';
     let jobs = jobCount();
-    console.log(jobs);
     jobs--;
-    console.log(jobs);
     setJobCount(jobs);
 }
 

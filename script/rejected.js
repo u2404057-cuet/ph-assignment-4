@@ -24,6 +24,7 @@ function rejected(id, status, rejBtn, btn){
         interviewCount--;
         setRejectedCount(rejectedCount);
         setInterviewCount(interviewCount);
+        checkJob(interviewCount);
         if(!(secondContainer.classList.contains('hidden'))){
             secondCount(rejectedCount);
         }
@@ -52,9 +53,7 @@ function rejectedTab(){
 
     buttonChange('rejected');
 
-    if(rejectedCount == 0){
-        noJob();
-    }
+    checkJob(rejectedCount);
 
     const children = document.getElementById('job-container').children;
     for(const child of children){
