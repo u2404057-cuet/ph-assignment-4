@@ -42,15 +42,15 @@
       <div class="grid grid-cols-3 gap-4">
         <div class="p-5 bg-base-100 shadow">
           <p class="">Total</p>
-          <h1 class="text-2xl font-bold">8</h1>
+          <h1 id="total-job-1" class="text-2xl font-bold">8</h1>
         </div>
         <div class="p-5 bg-base-100 shadow">
           <p class="">Interview</p>
-          <h1 class="text-2xl font-bold text-green-500">0</h1>
+          <h1 id="interview-count" class="text-2xl font-bold text-green-500">0</h1>
         </div>
         <div class="p-5 bg-base-100 shadow">
           <p class="">Rejected</p>
-          <h1 class="text-2xl font-bold text-red-500">0</h1>
+          <h1 id="rejected-count" class="text-2xl font-bold text-red-500">0</h1>
         </div>
       </div>
     </header>
@@ -58,34 +58,37 @@
     <hr class="my-8 container mx-auto opacity-10 px-3" />
 
     <section id="job-box" class="container mx-auto space-y-4 px-3">
+
       <div class="flex justify-between items-center">
         <p class="font-semibold text-xl">Available Jobs</p>
-        <p class=""><span>8</span> jobs</p>
+        <p class=""><span id="total-job-2">8</span> jobs</p>
       </div>
+
       <div class="choises flex gap-2">
-        <button class="btn bg-base-100 hover:bg-base-300">Default</button>
-        <button class="btn bg-base-100 hover:bg-base-300">Interview</button>
-        <button class="btn bg-base-100 hover:bg-base-300">Rejected</button>
+        <button id="default" class="btn bg-base-100 hover:bg-base-300">Default</button>
+        <button id="interview" class="btn bg-base-100 hover:bg-base-300">Interview</button>
+        <button id="rejected" class="btn bg-base-100 hover:bg-base-300">Rejected</button>
       </div>
-      <div class="container mx-auto space-y-4">
-        <div class="bg-base-100 p-6 relative rounded-xl">
+
+      <div id="job-container" class="container mx-auto space-y-4">
+        <div id="job-1" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">Mobile First Corp</h1>
           <p class="text-[#64748B]">React Native Developer</p>
           <p class="text-[#64748B] py-5">
             Remote • Full-time • $130,000 - $175,000
           </p>
-          <p class="bg-[#EEF4FF] inline-block p-3">Not Applied</p>
+          <p id="job-status-1" class="bg-[#EEF4FF] inline-block p-3">Not Applied</p>
           <p class="py-5">
             Build cross-platform mobile applications using React Native. Work on
             products used by millions of users worldwide.
           </p>
-          <button class="btn btn-lg btn-outline btn-success">Interview</button>
-          <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button id="interview-btn-1" onclick="interview('job-1','job-status-1', 'interview-btn-1')" class="btn btn-lg btn-outline btn-success">Interview</button>
+          <button id="rejected-1" class="btn btn-lg btn-outline btn-error">Rejected</button>
+          <button onclick="hide('job-1')" onclick="hide('job-2')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-2" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">WebFlow Agency</h1>
           <p class="text-[#64748B]">Web Designer & Developer</p>
           <p class="text-[#64748B] py-5">
@@ -98,11 +101,11 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-2')" onclick="hide('job-2')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-3" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">DataViz Solutions</h1>
           <p class="text-[#64748B]">Data Visualization Specialist</p>
           <p class="text-[#64748B] py-5">
@@ -115,11 +118,11 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-3')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-4" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">CloudFirst Inc</h1>
           <p class="text-[#64748B]">Backend Developer</p>
           <p class="text-[#64748B] py-5">
@@ -133,12 +136,12 @@
               Interview
             </button>
             <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-            <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+            <button onclick="hide('job-4')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
               <i class="fa-solid fa-trash-can"></i>
             </button>
           </p>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-5" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">Innovation Labs</h1>
           <p class="text-[#64748B]">UI/UX Engineer</p>
           <p class="text-[#64748B] py-5">
@@ -152,11 +155,11 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-5')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-6" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">MegaCorp Solutions</h1>
           <p class="text-[#64748B]">JavaScript Developer</p>
           <p class="text-[#64748B] py-5">
@@ -170,11 +173,11 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-6')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-7" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">StartupXYZ</h1>
           <p class="text-[#64748B]">Full Stack Engineer</p>
           <p class="text-[#64748B] py-5">
@@ -188,11 +191,11 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-7')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        <div class="bg-base-100 p-6 relative rounded-xl">
+        <div id="job-8" class="bg-base-100 p-6 relative rounded-xl">
           <h1 class="font-semibold text-xl">TechCorp Industries</h1>
           <p class="text-[#64748B]">Senior Frontend Developer</p>
           <p class="text-[#64748B] py-5">
@@ -206,12 +209,12 @@
           </p>
           <button class="btn btn-lg btn-outline btn-success">Interview</button>
           <button class="btn btn-lg btn-outline btn-error">Rejected</button>
-          <button class="btn btn-circle absolute top-5 right-5 bg-base-200">
+          <button onclick="hide('job-8')" class="btn btn-circle absolute top-5 right-5 bg-base-200">
             <i class="fa-solid fa-trash-can"></i>
           </button>
         </div>
-        
-        <div class="bg-base-100 py-28 rounded-xl flex flex-col items-center gap-5">
+
+        <div id="no-job" class="bg-base-100 py-28 rounded-xl flex flex-col items-center gap-5 hidden">
           <div class="img">
             <img src="./jobs.png" alt="" />
           </div>
@@ -224,5 +227,8 @@
         </div>
       </div>
     </section>
+
+    <script src="./script/mechine.js"></script>
+    <script src="./script/interview.js"></script>
   </body>
 </html>
